@@ -1,0 +1,22 @@
+#!/usr/bin/bash
+
+# Set the color variable
+green='\033[0;32m'
+# Clear the color after that
+cleare='\033[0m'
+
+echo -n "Enter file path: "
+read FILE
+
+if [ -f $FILE ]; then
+	echo "Its a Regular file"
+elif [ -d $FILE ]; then
+	echo "Its a Directory"
+else
+	echo "$FILE is a type we dont know off"
+fi
+
+out=`ls -lah $FILE`
+printf "${green}${out}${cleare}"
+
+
